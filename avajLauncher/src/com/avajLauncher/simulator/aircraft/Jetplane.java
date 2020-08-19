@@ -1,8 +1,9 @@
 package com.avajLauncher.simulator.aircraft;
 
+import com.avajLauncher.simulator.Flyable;
 import com.avajLauncher.simulator.WeatherTower;
 
-public class Jetplane extends Aircraft {
+public class Jetplane extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
 
     public Jetplane(String name, Coordinates coordinates) {
@@ -13,7 +14,7 @@ public class Jetplane extends Aircraft {
 
     }
 
-    public void resgisterTower(WeatherTower weatherTower) {
+    public void registerTower(WeatherTower weatherTower) {
         
     }
 }
