@@ -1,9 +1,9 @@
 package com.avajLauncher.simulator;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public abstract class Tower {
-    private List<Flyable> observers;
+    private ArrayList<Flyable> observers;
 
     public void register(Flyable flyable) {
         observers.add(flyable);
@@ -14,6 +14,8 @@ public abstract class Tower {
     }
 
     protected void conditionsChanged() {
-        
+        for (Flyable craft : observers) {
+            craft.updateConditions();
+        }
     }
 }

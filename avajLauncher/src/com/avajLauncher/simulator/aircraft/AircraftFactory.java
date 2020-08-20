@@ -4,7 +4,7 @@ import com.avajLauncher.simulator.Flyable;
 
 public abstract class AircraftFactory {
     public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) {
-        Aircraft aircraft;
+        Flyable aircraft;
         Coordinates coords = new Coordinates(longitude, latitude, height);
         
         type = type.toLowerCase();
