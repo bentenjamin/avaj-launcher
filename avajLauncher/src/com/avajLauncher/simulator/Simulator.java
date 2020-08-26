@@ -5,16 +5,18 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import com.avajLauncher.simulator.aircraft.AircraftFactory;
+import com.avajLauncher.weather.WeatherTower;
 
-public class App {
+public class Simulator {
     protected static int simulations; 
     public static void main(String[] args) {
             WeatherTower tower = new WeatherTower();
             int simulations = 0;
             Scanner scanner = null;
+            String fileName = args[0];
             // File inputFile = null;
             try {
-                scanner = new Scanner(new File("scenario.txt"));
+                scanner = new Scanner(new File(fileName));
             } catch(FileNotFoundException e) {
                 System.out.println("File not found!");
                 System.exit(1);

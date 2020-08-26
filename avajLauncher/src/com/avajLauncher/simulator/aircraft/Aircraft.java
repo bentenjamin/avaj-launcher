@@ -2,8 +2,6 @@ package com.avajLauncher.simulator.aircraft;
 
 import java.util.HashMap;
 
-import com.avajLauncher.simulator.Flyable;
-
 public abstract class Aircraft {
     protected long id;
     protected String name;
@@ -41,7 +39,7 @@ public abstract class Aircraft {
         if (this.coordinates.getHeight() != 0)
             finalMessage += this.messages.get(weather);
         else
-            finalMessage += ("LANDING AT LAT:" + this.coordinates.getLatitude() + " LONG:" + this.coordinates.getLongitude() + " HEIGHT:0");
+            finalMessage += ("LANDING AT " + this.coordinates.toString());
 
         System.out.println(finalMessage);
     }

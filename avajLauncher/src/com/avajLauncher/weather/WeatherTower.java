@@ -1,4 +1,4 @@
-package com.avajLauncher.simulator;
+package com.avajLauncher.weather;
 
 import com.avajLauncher.simulator.aircraft.Coordinates;
 

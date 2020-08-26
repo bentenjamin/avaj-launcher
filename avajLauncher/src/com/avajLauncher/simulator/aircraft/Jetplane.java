@@ -1,7 +1,7 @@
 package com.avajLauncher.simulator.aircraft;
 
 import com.avajLauncher.simulator.Flyable;
-import com.avajLauncher.simulator.WeatherTower;
+import com.avajLauncher.weather.WeatherTower;
 
 public class Jetplane extends Aircraft implements Flyable{
     private WeatherTower weatherTower;

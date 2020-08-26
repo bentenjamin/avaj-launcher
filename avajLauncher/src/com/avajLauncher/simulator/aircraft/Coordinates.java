@@ -22,4 +22,8 @@ public class Coordinates {
     public int getHeight() {
         return height;
     }
+
+    public String toString() {
+        return (String.format("Lat: %s, Long: %s, Height: %s", this.latitude, this.longitude, this.height));
+    }
 }
