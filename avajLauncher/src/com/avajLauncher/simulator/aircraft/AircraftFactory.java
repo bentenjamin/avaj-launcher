@@ -17,8 +17,12 @@ public abstract class AircraftFactory {
                 aircraft = new Jetplane(name, coords);
                 break;
 
+            case "baloon":
+                aircraft = new Jetplane(name, coords);
+                break;
+
             default:
-                aircraft = new Baloon(name, coords);
+                aircraft = null;
                 break;
         }
         

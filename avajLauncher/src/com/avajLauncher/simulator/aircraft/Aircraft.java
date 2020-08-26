@@ -37,12 +37,11 @@ public abstract class Aircraft {
         finalMessage += "(";
         finalMessage += Long.toString(this.id);
         finalMessage += ") : ";
-        finalMessage += "#";
 
-        if (this.coordinates.getHeight() == 0)
-            finalMessage += this.highVals.get(weather);
+        if (this.coordinates.getHeight() != 0)
+            finalMessage += this.messages.get(weather);
         else
-            finalMessage += ("LANDING LAT:" + this.coordinates.getLatitude() + " LONG:" + this.coordinates.getLongitude() + " HEIGHT:0");
+            finalMessage += ("LANDING AT LAT:" + this.coordinates.getLatitude() + " LONG:" + this.coordinates.getLongitude() + " HEIGHT:0");
 
         System.out.println(finalMessage);
     }
