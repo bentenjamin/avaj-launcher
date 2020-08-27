@@ -24,7 +24,6 @@ public class Simulator {
                 System.out.println("No File Name!");
                 System.exit(1);
             }
-            // File inputFile = null;
 
             try {
                 scanner = new Scanner(new File(fileName));
@@ -33,6 +32,10 @@ public class Simulator {
                 System.exit(1);
             }
             //input validation
+            if (scanner.hasNext() == false) {
+                System.out.println("empty file!");
+                System.exit(1);
+            }
 
             try {
                 simulations = Integer.parseInt(scanner.nextLine());
