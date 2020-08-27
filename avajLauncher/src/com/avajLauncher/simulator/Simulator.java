@@ -32,10 +32,13 @@ public class Simulator {
 
             try {
                 simulations = Integer.parseInt(scanner.nextLine());
-                if (simulations < 1)
-                    throw new Exception("Invalid number of simulations");
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+            } catch (final NumberFormatException e) {
+                System.out.println("Simulations is not an int");
+                System.exit(1);
+            }
+            
+            if (simulations < 1) {
+                System.out.println("Invalid number of simulations");
                 System.exit(1);
             }
     

@@ -8,6 +8,8 @@ public class Helicopter extends Aircraft implements Flyable{
 
     public Helicopter(String name, Coordinates coordinates) {
         super(name, coordinates);
+        this.craftType = "Helicopter";
+        setCallSign();
 
         this.longVals.put("SUN", 10);
         this.longVals.put("RAIN", 5);
@@ -33,16 +35,16 @@ public class Helicopter extends Aircraft implements Flyable{
     }
 
     public void updateConditions() {
-        updateCraft(this.weatherTower.getWeather(coordinates), "HELICOPTER");
+        updateCraft(this.weatherTower.getWeather(coordinates));
 
         if (this.coordinates.getHeight() == 0) {
-            System.out.println(this.name + " signing out.");
+            System.out.println(this.callSign + " signing out.");
             this.weatherTower.unregister(this);
         }
     }
     
     public void registerTower(WeatherTower weatherTower) {
-        System.out.println(this.name + " registering");
+        System.out.println(this.callSign + " registering");
         this.weatherTower = weatherTower;
     }
 }

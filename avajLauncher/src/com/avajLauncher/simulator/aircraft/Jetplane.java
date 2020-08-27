@@ -8,6 +8,8 @@ public class Jetplane extends Aircraft implements Flyable{
 
     public Jetplane(String name, Coordinates coordinates) {
         super(name, coordinates);
+        this.craftType = "JetPlane";
+        setCallSign();
 
         this.latVals.put("SUN", 10);
         this.latVals.put("RAIN", 5);
@@ -32,16 +34,16 @@ public class Jetplane extends Aircraft implements Flyable{
     }
 
     public void updateConditions() {
-        updateCraft(this.weatherTower.getWeather(coordinates), "JETPLANE");
+        updateCraft(this.weatherTower.getWeather(coordinates));
 
         if (this.coordinates.getHeight() == 0) {
-            System.out.println(this.name + " signing out.");
+            System.out.println(this.callSign + " signing out.");
             this.weatherTower.unregister(this);
         }
     }
 
     public void registerTower(WeatherTower weatherTower) {
-        System.out.println(this.name + " registering");
+        System.out.println(this.callSign + " registering");
         this.weatherTower = weatherTower;
     }
 }

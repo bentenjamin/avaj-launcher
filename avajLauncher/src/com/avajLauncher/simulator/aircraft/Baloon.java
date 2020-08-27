@@ -8,6 +8,8 @@ public class Baloon extends Aircraft implements Flyable{
 
     public Baloon(String name, Coordinates coordinates) {
         super(name, coordinates);
+        this.craftType = "Baloon";
+        setCallSign();
 
         this.longVals.put("SUN", 2);
         this.longVals.put("RAIN", 0);
@@ -32,16 +34,16 @@ public class Baloon extends Aircraft implements Flyable{
     }
 
     public void updateConditions() {
-        updateCraft(this.weatherTower.getWeather(coordinates), "BALOON");
+        updateCraft(this.weatherTower.getWeather(coordinates));
 
         if (this.coordinates.getHeight() == 0) {
-            System.out.println(this.name + " signing out.");
+            System.out.println(this.callSign + " signing out.");
             this.weatherTower.unregister(this);
         }
     }
 
     public void registerTower(WeatherTower weatherTower) {
-        System.out.println(this.name + " registering");
+        System.out.println(this.callSign + " registering");
         this.weatherTower = weatherTower;
     }
 }
