@@ -1,8 +1,8 @@
-package com.avajLauncher.simulator.aircraft;
+package avajLauncher.src.com.avajLauncher.simulator.aircraft;
 
 import java.util.HashMap;
 
-import com.avajLauncher.simulator.Simulator;
+import avajLauncher.src.com.avajLauncher.simulator.Simulator;
 
 public abstract class Aircraft {
     protected long id;

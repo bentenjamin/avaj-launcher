@@ -1,8 +1,8 @@
-package com.avajLauncher.simulator.aircraft;
+package avajLauncher.src.com.avajLauncher.simulator.aircraft;
 
-import com.avajLauncher.simulator.Flyable;
-import com.avajLauncher.simulator.Simulator;
-import com.avajLauncher.weather.WeatherTower;
+import avajLauncher.src.com.avajLauncher.simulator.Flyable;
+import avajLauncher.src.com.avajLauncher.simulator.Simulator;
+import avajLauncher.src.com.avajLauncher.weather.WeatherTower;
 
 public class Helicopter extends Aircraft implements Flyable{
     private WeatherTower weatherTower;

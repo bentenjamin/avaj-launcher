@@ -1,8 +1,8 @@
-package com.avajLauncher.weather;
+package avajLauncher.src.com.avajLauncher.weather;
 
 import java.util.Random;
 
-import com.avajLauncher.simulator.aircraft.Coordinates;
+import avajLauncher.src.com.avajLauncher.simulator.aircraft.Coordinates;
 
 public class WeatherProvider {
     private static WeatherProvider weatherProvider = new WeatherProvider();
@@ -17,7 +17,7 @@ public class WeatherProvider {
     }
 
     public String getCurrentWeather(Coordinates coordinates) {
-        return weather[rando.nextInt(4)];
+        return weather[(rando.nextInt(100) + coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight()) % 4];
     }
     
 }

@@ -18,4 +18,4 @@ $find -name "*.java" > sources.txt
 
 $javac -sourcepath @sources.txt
 
-$java com.avajLauncher.simulator.Simulator nameOfInputFile.txt
+$java avajLauncher.src.com.avajLauncher.simulator.Simulator scenario.txt

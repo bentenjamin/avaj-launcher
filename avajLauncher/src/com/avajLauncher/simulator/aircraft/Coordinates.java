@@ -1,4 +1,4 @@
-package com.avajLauncher.simulator.aircraft;
+package avajLauncher.src.com.avajLauncher.simulator.aircraft;
 
 public class Coordinates {
     private int longitude;

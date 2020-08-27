@@ -1,4 +1,4 @@
-package com.avajLauncher.simulator;
+package avajLauncher.src.com.avajLauncher.simulator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,8 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-import com.avajLauncher.simulator.aircraft.AircraftFactory;
-import com.avajLauncher.weather.WeatherTower;
+import avajLauncher.src.com.avajLauncher.simulator.aircraft.AircraftFactory;
+import avajLauncher.src.com.avajLauncher.weather.WeatherTower;
 
 public class Simulator {
     protected static int simulations;

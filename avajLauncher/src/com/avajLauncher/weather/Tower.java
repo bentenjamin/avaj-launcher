@@ -1,8 +1,8 @@
-package com.avajLauncher.weather;
+package avajLauncher.src.com.avajLauncher.weather;
 
 import java.util.ArrayList;
 
-import com.avajLauncher.simulator.Flyable;
+import avajLauncher.src.com.avajLauncher.simulator.Flyable;
 
 public abstract class Tower {
     private ArrayList<Flyable> observers = new ArrayList<Flyable>();
