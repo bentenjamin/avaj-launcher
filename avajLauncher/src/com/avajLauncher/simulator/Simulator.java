@@ -13,8 +13,15 @@ public class Simulator {
             WeatherTower tower = new WeatherTower();
             int simulations = 0;
             Scanner scanner = null;
-            String fileName = args[0];
+            String fileName = null;
+            try {
+                fileName = args[0];
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("No File Name!");
+                System.exit(1);
+            }
             // File inputFile = null;
+
             try {
                 scanner = new Scanner(new File(fileName));
             } catch(FileNotFoundException e) {
@@ -40,10 +47,15 @@ public class Simulator {
                     if (line.length != 5)
                         throw new Exception("Invalid Input");
                     try {
-                        newAircraft = AircraftFactory.newAircraft(line[0], line[1], Integer.parseInt(line[2]), Integer.parseInt(line[3]), Integer.parseInt(line[4]));
-                    } catch (Exception e) {
-                        throw new Exception("Invalid Input");
-                    }
+                        int lat = Integer.parseInt(line[2]);
+                        int lng = Integer.parseInt(line[3]);
+                        int height = Integer.parseInt(line[4]);
+                        if ((lat < 0) || (lng < 0) || (height < 0) || (height > 100))
+                            throw new Exception("Invalid Coordinates");
+                        newAircraft = AircraftFactory.newAircraft(line[0], line[1], lat, lng, height);
+                        } catch (Exception e) {
+                            throw new Exception("Invalid Coordinates");
+                        }
                     if (newAircraft == null)
                         throw new Exception("Invalid aircraft type");
                 } catch (Exception e) {

@@ -35,11 +35,14 @@ public class Helicopter extends Aircraft implements Flyable{
     public void updateConditions() {
         updateCraft(this.weatherTower.getWeather(coordinates), "HELICOPTER");
 
-        if (this.coordinates.getHeight() == 0)
+        if (this.coordinates.getHeight() == 0) {
+            System.out.println(this.name + " signing out.");
             this.weatherTower.unregister(this);
+        }
     }
-
+    
     public void registerTower(WeatherTower weatherTower) {
+        System.out.println(this.name + " registering");
         this.weatherTower = weatherTower;
     }
 }
