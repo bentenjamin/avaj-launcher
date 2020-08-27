@@ -1,6 +1,7 @@
 package com.avajLauncher.simulator.aircraft;
 
 import com.avajLauncher.simulator.Flyable;
+import com.avajLauncher.simulator.Simulator;
 import com.avajLauncher.weather.WeatherTower;
 
 public class Jetplane extends Aircraft implements Flyable{
@@ -37,13 +38,13 @@ public class Jetplane extends Aircraft implements Flyable{
         updateCraft(this.weatherTower.getWeather(coordinates));
 
         if (this.coordinates.getHeight() == 0) {
-            System.out.println(this.callSign + " signing out.");
+            Simulator.craftLog += (this.callSign + " signing out." + System.lineSeparator());
             this.weatherTower.unregister(this);
         }
     }
 
     public void registerTower(WeatherTower weatherTower) {
-        System.out.println(this.callSign + " registering");
+        Simulator.craftLog += (this.callSign + " registering" + System.lineSeparator());
         this.weatherTower = weatherTower;
     }
 }

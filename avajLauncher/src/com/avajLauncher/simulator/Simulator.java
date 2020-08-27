@@ -2,18 +2,22 @@ package com.avajLauncher.simulator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 import com.avajLauncher.simulator.aircraft.AircraftFactory;
 import com.avajLauncher.weather.WeatherTower;
 
 public class Simulator {
-    protected static int simulations; 
+    protected static int simulations;
+    public static String craftLog = "";
     public static void main(String[] args) {
             WeatherTower tower = new WeatherTower();
             int simulations = 0;
             Scanner scanner = null;
             String fileName = null;
+
             try {
                 fileName = args[0];
             } catch (IndexOutOfBoundsException e) {
@@ -73,5 +77,23 @@ public class Simulator {
             //simulate
             for (int counter = 0 ; counter < simulations; counter++)
                 tower.changeWeather();
+
+            //output
+            try {
+                File newFile = new File("simulation.txt");
+                newFile.createNewFile();
+            } catch (IOException e) {
+                System.out.println("An error occurred while creating the output file.");
+                e.printStackTrace();
+            }
+            
+            try {
+                FileWriter myWriter = new FileWriter("simulation.txt");
+                myWriter.write(craftLog);
+                myWriter.close();
+            } catch (IOException e) {
+                System.out.println("An error occurred while writing to the file.");
+                e.printStackTrace();
+            }
     }
 }
