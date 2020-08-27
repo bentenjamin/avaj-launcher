@@ -49,24 +49,47 @@ public class Simulator {
             //create and register aircraft
             while (scanner.hasNextLine()) {
                 Flyable newAircraft = null;
+                int lat = 0, lng = 0, height = 0;
+                String line[] = null;
+
                 try {
-                    String line[] = scanner.nextLine().split(" ");
+                    line = scanner.nextLine().split(" ");
+                } catch(Exception e) {
+                    System.out.println("Invalid Input!");
+                    System.exit(1);
+                }
+
+                try {
                     if (line.length != 5)
-                        throw new Exception("Invalid Input");
-                    try {
-                        int lat = Integer.parseInt(line[2]);
-                        int lng = Integer.parseInt(line[3]);
-                        int height = Integer.parseInt(line[4]);
-                        if ((lat < 0) || (lng < 0) || (height < 0) || (height > 100))
-                            throw new Exception("Invalid Coordinates");
-                        newAircraft = AircraftFactory.newAircraft(line[0], line[1], lat, lng, height);
-                        } catch (Exception e) {
-                            throw new Exception("Invalid Coordinates");
-                        }
-                    if (newAircraft == null)
-                        throw new Exception("Invalid aircraft type");
+                        throw new Exception("");
                 } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                    System.out.println("badly formatted aircraft!");
+                    System.exit(1);
+                }
+
+                try {
+                    lat = Integer.parseInt(line[2]);
+                    lng = Integer.parseInt(line[3]);
+                    height = Integer.parseInt(line[4]);
+                    if ((lat < 0) || (lng < 0) || (height < 0) || (height > 100))
+                        throw new Exception("Invalid Coordinates");
+                } catch (NumberFormatException e) {
+                    System.out.println("Coordinates are not positive integers!");
+                    System.exit(1);
+                } catch (Exception e) {
+                    System.out.println("Invalid Coordinates");
+                    System.exit(1);
+                }
+
+                try {
+                    newAircraft = AircraftFactory.newAircraft(line[0], line[1], lat, lng, height);
+                } catch (Exception e) {
+                    System.out.println("Failed to create aircraft!");
+                    System.exit(1);
+                }
+
+                if (newAircraft == null) {
+                    System.out.println("badly formatted aircraft!");
                     System.exit(1);
                 }
                 newAircraft.registerTower(tower);

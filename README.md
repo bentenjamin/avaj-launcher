@@ -16,6 +16,6 @@ navigate into src
 
 $find -name "*.java" > sources.txt
 
-$javac -sourcepath @sources.txt
+$javac @sources.txt
 
 $java avajLauncher.src.com.avajLauncher.simulator.Simulator scenario.txt
