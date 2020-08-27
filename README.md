@@ -13,6 +13,9 @@ height is between 1-100
 
 # usage
 navigate into src
+
 $find -name "*.java" > sources.txt
+
 $javac -sourcepath @sources.txt
+
 $java com.avajLauncher.simulator.Simulator nameOfInputFile.txt
