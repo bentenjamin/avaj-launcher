@@ -12,7 +12,7 @@ coordinates are positive
 height is between 1-100
 
 # usage
-navigate into src
+navigate into avaj-launcher
 
 $find -name "*.java" > sources.txt
 
